@@ -37,12 +37,11 @@ class SiteController extends Controller
     {
         if($this->_installed === null) {
             try {
-                $db = Yii::$app->db;
-
-                $easyiiInstalled = $db->createCommand("SHOW TABLES LIKE 'easyii_%'")->query()->count() > 0 ? true : false;
-                $siteInstalled = $db->createCommand()->select('COUNT(*)')->from(Page::tableName())->queryScalar() > 0 ? true : false;
-
-                $this->_installed = $easyiiInstalled && $siteInstalled  ? true : false;
+                if(!Yii::$app->getModule('admin')->installed || !Page::find()->count()){
+                    $this->_installed = false;
+                } else {
+                    $this->_installed = true;
+                }
             } catch (\Exception $e) {
                 $this->_installed = false;
             }
