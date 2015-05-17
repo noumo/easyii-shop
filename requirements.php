@@ -49,18 +49,18 @@ if (extension_loaded('gd')) {
  * Adjust requirements according to your application specifics.
  */
 $requirements = array(
+    array(
+        'name' => 'mod_rewrite module',
+        'mandatory' => true,
+        'condition' => in_array('mod_rewrite', apache_get_modules()),
+        'by' => '<a href="http://httpd.apache.org/docs/current/mod/mod_rewrite.html">Apache Module mod_rewrite</a>',
+    ),
     // Database :
     array(
         'name' => 'PDO extension',
         'mandatory' => true,
         'condition' => extension_loaded('pdo'),
         'by' => 'All DB-related classes',
-    ),
-    array(
-        'name' => 'mod_rewrite module',
-        'mandatory' => true,
-        'condition' => 1==2 && in_array('mod_rewrite', apache_get_modules()),
-        'by' => '<a href="http://httpd.apache.org/docs/current/mod/mod_rewrite.html">Apache Module mod_rewrite</a>',
     ),
     array(
         'name' => 'PDO SQLite extension',
@@ -71,7 +71,7 @@ $requirements = array(
     ),
     array(
         'name' => 'PDO MySQL extension',
-        'mandatory' => false,
+        'mandatory' => true,
         'condition' => extension_loaded('pdo_mysql'),
         'by' => 'All DB-related classes',
         'memo' => 'Required for MySQL database.',
