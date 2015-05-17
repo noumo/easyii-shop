@@ -15,6 +15,6 @@ $this->title = 'EasyiiCMS Install result';
     </div>
     <br>
     <a href="<?= Url::to(['/site/start']) ?>" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Startpage</a>
-    <a href="<?= Url::home() ?>" class="btn btn-primary"><i class="glyphicon glyphicon-home"></i> Homepage</a>
+    <a href="<?= Url::home() ?>" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-home"></i> Shop homepage</a>
 </div>
 
