@@ -1,14 +1,14 @@
 {
-    "name": "noumo/easyii-start",
-    "description": "Easy CMS based on Yii2 Framework",
-    "keywords": ["yii2", "cms", "control panel", "admin", "easy"],
+    "name": "noumo/easyii-shop",
+    "description": "Easyiicms simple shop with examples of all modules",
+    "keywords": ["yii2", "cms", "control panel", "admin", "easy", "shop"],
     "homepage": "http://easyiicms.com",
     "type": "project",
     "license": "GNU GPL V3",
     "support": {
         "wiki": "http://easyiicms.com/docs",
-        "source": "https://github.com/noumo/easyii.git",
-        "issues": "https://github.com/noumo/easyii/issues"
+        "source": "https://github.com/noumo/easyii-shop.git",
+        "issues": "https://github.com/noumo/easyii-shop/issues"
     },
     "minimum-stability": "dev",
     "require": {
