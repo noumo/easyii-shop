@@ -13,7 +13,7 @@ class ShopcartController extends \yii\web\Controller
     public function actionIndex()
     {
         return $this->render('index', [
-            'goods' => Shopcart::items()
+            'goods' => Shopcart::goods()
         ]);
     }
 
@@ -52,9 +52,14 @@ class ShopcartController extends \yii\web\Controller
         return $this->redirect(Yii::$app->request->referrer);
     }
 
-    public function actionOrder()
+    public function actionOrder($id, $token)
     {
-        return $this->render('order');
+        $order = Shopcart::order($id);
+        if(!$order || $order->access_token != $token){
+            throw new NotFoundHttpException('Order not found');
+        }
+
+        return $this->render('order', ['order' => $order]);
     }
 
 }

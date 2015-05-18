@@ -5,8 +5,7 @@ use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\Menu;
 
-$shopcartItems = Shopcart::items();
-$shopcartItemsCount = count($shopcartItems);
+$goodsCount = count(Shopcart::goods());
 ?>
 <?php $this->beginContent('@app/views/layouts/base.php'); ?>
 <div id="wrapper" class="container">
@@ -39,8 +38,8 @@ $shopcartItemsCount = count($shopcartItems);
                     ]); ?>
                     <a href="<?= Url::to(['/shopcart']) ?>" class="btn btn-default navbar-btn navbar-right" title="Complete order">
                         <i class="glyphicon glyphicon-shopping-cart"></i>
-                        <?php if($shopcartItemsCount > 0) : ?>
-                            <?= $shopcartItemsCount ?> <?= $shopcartItemsCount > 1 ? 'items' : 'item' ?> - <?= Shopcart::cost() ?>$
+                        <?php if($goodsCount > 0) : ?>
+                            <?= $goodsCount ?> <?= $goodsCount > 1 ? 'items' : 'item' ?> - <?= Shopcart::cost() ?>$
                         <?php else : ?>
                             <span class="text-muted">empty</span>
                         <?php endif; ?>
