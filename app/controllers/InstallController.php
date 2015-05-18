@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use yii\easyii\models\InstallForm;
 use yii\easyii\models\Photo;
 use yii\easyii\models\SeoText;
 use yii\easyii\modules\carousel\models\Carousel;
@@ -52,6 +53,21 @@ class InstallController extends \yii\web\Controller
         return $this->render('step1');
     }
 
+    public function actionStep2()
+    {
+        if($this->adminInstalled){
+            return $this->redirect($this->shopInstalled ? ['/'] : ['/install/step3']);
+        }
+        $this->registerI18n();
+
+        $installForm = new InstallForm();
+        $installForm->robot_email = 'noreply@'.Yii::$app->request->serverName;
+
+        Yii::$app->session->setFlash(InstallForm::RETURN_URL_KEY, '/install/step3');
+
+        return $this->render('step2', ['model' => $installForm]);
+    }
+
     public function actionStep3()
     {
         $result = [];
@@ -67,6 +83,18 @@ class InstallController extends \yii\web\Controller
         $result[] = $this->insertFiles();
 
         return $this->render('step3', ['result' => $result]);
+    }
+
+    private function registerI18n()
+    {
+        Yii::$app->i18n->translations['easyii/install'] = [
+            'class' => 'yii\i18n\PhpMessageSource',
+            'sourceLanguage' => 'en-US',
+            'basePath' => '@easyii/messages',
+            'fileMap' => [
+                'easyii/install' => 'install.php',
+            ]
+        ];
     }
 
     public function insertTexts()

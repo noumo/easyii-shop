@@ -1,4 +1,4 @@
-<?
+<?php
 use yii\helpers\Url;
 
 $this->title = 'EasyiiCMS installation step 3';

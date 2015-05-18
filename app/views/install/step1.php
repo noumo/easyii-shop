@@ -1,4 +1,4 @@
-<?
+<?php
 use yii\helpers\Url;
 
 $this->title = 'EasyiiCMS installation step 1';
@@ -12,7 +12,7 @@ $this->title = 'EasyiiCMS installation step 1';
 <?php else : ?>
     <div class="row text-center">
         <h2 class="text-muted">If all the requirements are satisfied</h2>
-        <a href="<?= Url::to(['/admin/install']) ?>" class="btn btn-primary btn-lg">Continue <i class="glyphicon glyphicon-forward"></i></a>
+        <a href="<?= Url::to(['/install/step2']) ?>" class="btn btn-primary btn-lg">Continue <i class="glyphicon glyphicon-forward"></i></a>
     </div>
     <hr/>
     <?= $this->renderFile(Yii::getAlias('@webroot') . DIRECTORY_SEPARATOR .'requirements.php') ?>

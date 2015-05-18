@@ -54,6 +54,19 @@ footer, .push {
     font-weight: 300;
     text-transform: uppercase;
 }
+
+#page-install .tooltip{
+    min-width: 200px;
+}
+#page-install .tooltip .tooltip-inner{
+    font-size: 12px;
+    text-align: left;
+    padding: 5px 8px 5px 10px;
+}
+#page-install .panel .recaptcha-tip{
+    margin-bottom: 20px;
+}
+
 /*Form Wizard*/
 .bs-wizard {border-bottom: solid 1px #e0e0e0; padding: 0 0 10px 0;}
 .bs-wizard > .bs-wizard-step {padding: 0; position: relative;}
