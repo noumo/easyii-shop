@@ -8,8 +8,6 @@ use yii\web\Controller;
 
 class SiteController extends Controller
 {
-    private $_installed;
-
     public function actions()
     {
         return [
@@ -21,31 +19,9 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        if(!$this->installed){
-            return $this->redirect(['/site/start']);
+        if(!Yii::$app->getModule('admin')->installed){
+            return $this->redirect(['/install/step1']);
         }
         return $this->render('index');
-    }
-
-    public function actionStart()
-    {
-        $this->layout = 'base';
-        return $this->render('start');
-    }
-
-    public function getInstalled()
-    {
-        if($this->_installed === null) {
-            try {
-                if(!Yii::$app->getModule('admin')->installed || !Page::find()->count()){
-                    $this->_installed = false;
-                } else {
-                    $this->_installed = true;
-                }
-            } catch (\Exception $e) {
-                $this->_installed = false;
-            }
-        }
-        return $this->_installed;
     }
 }

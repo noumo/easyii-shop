@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use yii\base\InvalidConfigException;
+use Yii;
 use yii\easyii\models\Photo;
 use yii\easyii\models\SeoText;
 use yii\easyii\modules\carousel\models\Carousel;
@@ -18,19 +18,42 @@ use yii\easyii\modules\text\models\Text;
 
 class InstallController extends \yii\web\Controller
 {
-    public $layout = 'base';
+    public $layout = 'install';
+    public $defaultAction = 'step1';
     public $db;
 
-    public function actionIndex()
+    public $dbConnected = false;
+    public $adminInstalled = false;
+    public $shopInstalled = false;
+
+    public function init()
     {
-        $this->db = \Yii::$app->db;
+        parent::init();
+
+        $this->db = Yii::$app->db;
         try {
-            $this->db->open();
+            Yii::$app->db->open();
+            $this->dbConnected = true;
+            $this->adminInstalled = Yii::$app->getModule('admin')->installed;
+            if($this->adminInstalled) {
+                $this->shopInstalled = Page::find()->count() > 0 ? true : false;
+            }
         }
         catch(\Exception $e){
-            throw new InvalidConfigException('Cannot connect to MySQL, please configure `app/config/db.php`.');
+            $this->dbConnected = false;
         }
+    }
 
+    public function actionStep1()
+    {
+        if($this->adminInstalled){
+            return $this->redirect($this->shopInstalled ? ['/'] : ['/install/step3']);
+        }
+        return $this->render('step1');
+    }
+
+    public function actionStep3()
+    {
         $result = [];
         $result[] = $this->insertTexts();
         $result[] = $this->insertPages();
@@ -43,7 +66,7 @@ class InstallController extends \yii\web\Controller
         $result[] = $this->insertCarousel();
         $result[] = $this->insertFiles();
 
-        return $this->render('index', ['result' => $result]);
+        return $this->render('step3', ['result' => $result]);
     }
 
     public function insertTexts()
