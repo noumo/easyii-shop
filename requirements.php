@@ -49,12 +49,6 @@ if (extension_loaded('gd')) {
  * Adjust requirements according to your application specifics.
  */
 $requirements = array(
-    array(
-        'name' => 'mod_rewrite module',
-        'mandatory' => true,
-        'condition' => in_array('mod_rewrite', apache_get_modules()),
-        'by' => '<a href="http://httpd.apache.org/docs/current/mod/mod_rewrite.html">Apache Module mod_rewrite</a>',
-    ),
     // Database :
     array(
         'name' => 'PDO extension',
