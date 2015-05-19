@@ -13,7 +13,7 @@
             <br/>
             <span class="text-muted">CPU cores:</span> <?= $item->data->cpu ?>
             <br/>
-            <?php if($item->data->features) : ?>
+            <?php if(!empty($item->data->features) ) : ?>
                 <span class="text-muted">Features:</span> <?= implode(', ', $item->data->features) ?>
             <?php endif; ?>
         </p>

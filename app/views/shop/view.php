@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = ['label' => $item->cat->title, 'url' => ['shop/
 $this->params['breadcrumbs'][] = $item->model->title;
 
 $colors = [];
-if(is_array($item->data->color)) {
+if(!empty($item->data->color) && is_array($item->data->color)) {
     foreach ($item->data->color as $color) {
         $colors[$color] = $color;
     }
@@ -52,7 +52,7 @@ if(is_array($item->data->color)) {
                 <span class="text-muted">CPU cores:</span> <?= $item->data->cpu ?>
                 <br/>
                 <span class="text-muted">Availability:</span> <?= $item->available ? $item->available : 'Out of stock' ?>
-                <?php if($item->data->features) : ?>
+                <?php if(!empty($item->data->features)) : ?>
                     <br/>
                     <span class="text-muted">Features:</span> <?= implode(', ', $item->data->features) ?>
                 <?php endif; ?>
@@ -62,7 +62,7 @@ if(is_array($item->data->color)) {
                     <h4 class="text-success"><i class="glyphicon glyphicon-ok"></i> Added to cart</h4>
                 <?php elseif($item->available) : ?>
                     <br/>
-                        <div class="well well-sm">
+                    <div class="well well-sm">
                         <?php $form = ActiveForm::begin(['action' => Url::to(['/shopcart/add', 'id' => $item->id])]); ?>
                         <?php if(count($colors)) : ?>
                             <?= $form->field($addToCartForm, 'color')->dropDownList($colors) ?>

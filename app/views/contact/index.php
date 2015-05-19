@@ -2,9 +2,9 @@
 use yii\easyii\modules\feedback\api\Feedback;
 use yii\easyii\modules\page\api\Page;
 
-$page = Page::get('page-contact', $page->model->title);
+$page = Page::get('page-contact');
 
-$this->title = $page->seo('title');
+$this->title = $page->seo('title', $page->model->title);
 $this->params['breadcrumbs'][] = $page->model->title;
 ?>
 <h1><?= $page->seo('h1', $page->title) ?></h1>
