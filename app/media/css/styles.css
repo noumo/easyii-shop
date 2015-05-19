@@ -33,6 +33,7 @@ footer, .push {
 }
 
 #page-install h1{
+    font-family: 'Open Sans', sans-serif;
     font-size: 40px;
     font-weight: 300;
     text-transform: uppercase;
@@ -50,6 +51,7 @@ footer, .push {
     text-decoration: none;
 }
 #page-install h2 {
+    font-family: 'Open Sans', sans-serif;
     font-size: 24px;
     font-weight: 300;
     text-transform: uppercase;
