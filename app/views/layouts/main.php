@@ -67,7 +67,11 @@ $goodsCount = count(Shopcart::goods());
                 Subscribe to newsletters
             </div>
             <div class="col-md-6">
-                <?= Subscribe::form() ?>
+                <?php if(Yii::$app->request->get(Subscribe::SENT_VAR)) : ?>
+                    You have successfully subscribed
+                <?php else : ?>
+                    <?= Subscribe::form() ?>
+                <?php endif; ?>
             </div>
             <div class="col-md-4 text-right">
                 ©2015 noumo
