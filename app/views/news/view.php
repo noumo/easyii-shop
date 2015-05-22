@@ -19,5 +19,10 @@ $this->params['breadcrumbs'][] = $news->model->title;
     </div>
     <br/>
 <?php endif; ?>
+<p>
+    <?php foreach($news->tags as $tag) : ?>
+        <span class="label label-info"><?= $tag ?></span>
+    <?php endforeach; ?>
+</p>
 
 <div class="small-muted">Views: <?= $news->views?></div>

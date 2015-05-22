@@ -20,6 +20,11 @@ $this->params['breadcrumbs'][] = $page->model->title;
             <?= Html::a($news->title, ['news/view', 'slug' => $news->slug]) ?>
             <div class="small-muted"><?= $news->date ?></div>
             <p><?= $news->short ?></p>
+            <p>
+                <?php foreach($news->tags as $tag) : ?>
+                    <span class="label label-info"><?= $tag ?></span>
+                <?php endforeach; ?>
+            </p>
         </div>
     </div>
     <br>

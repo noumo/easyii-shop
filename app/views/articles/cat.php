@@ -17,6 +17,11 @@ $this->params['breadcrumbs'][] = $cat->model->title;
             <div class="col-md-10">
                 <?= Html::a($article->title, ['articles/view', 'slug' => $article->slug]) ?>
                 <p><?= $article->short ?></p>
+                <p>
+                    <?php foreach($article->tags as $tag) : ?>
+                        <span class="label label-info"><?= $tag ?></span>
+                    <?php endforeach; ?>
+                </p>
             </div>
         </div>
         <br>
