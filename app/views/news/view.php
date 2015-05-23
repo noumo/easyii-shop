@@ -1,5 +1,6 @@
 <?php
 use yii\easyii\modules\news\api\News;
+use yii\helpers\Url;
 
 $this->title = $news->seo('title', $news->model->title);
 $this->params['breadcrumbs'][] = ['label' => 'News', 'url' => ['news/index']];
@@ -21,7 +22,7 @@ $this->params['breadcrumbs'][] = $news->model->title;
 <?php endif; ?>
 <p>
     <?php foreach($news->tags as $tag) : ?>
-        <span class="label label-info"><?= $tag ?></span>
+        <a href="<?= Url::to(['/news', 'tag' => $tag]) ?>" class="label label-info"><?= $tag ?></a>
     <?php endforeach; ?>
 </p>
 

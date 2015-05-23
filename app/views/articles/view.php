@@ -1,5 +1,6 @@
 <?php
 use yii\easyii\modules\article\api\Article;
+use yii\helpers\Url;
 
 $this->title = $article->seo('title', $article->model->title);
 $this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['articles/index']];
@@ -22,7 +23,7 @@ $this->params['breadcrumbs'][] = $article->model->title;
 <?php endif; ?>
 <p>
     <?php foreach($article->tags as $tag) : ?>
-        <span class="label label-info"><?= $tag ?></span>
+        <a href="<?= Url::to(['/articles/cat', 'slug' => $article->cat->slug, 'tag' => $tag]) ?>" class="label label-info"><?= $tag ?></a>
     <?php endforeach; ?>
 </p>
 

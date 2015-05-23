@@ -11,7 +11,7 @@ class ArticlesController extends \yii\web\Controller
         return $this->render('index');
     }
 
-    public function actionCat($slug)
+    public function actionCat($slug, $tag = null)
     {
         $cat = Article::cat($slug);
         if(!$cat){
@@ -20,7 +20,7 @@ class ArticlesController extends \yii\web\Controller
 
         return $this->render('cat', [
             'cat' => $cat,
-            'items' => $cat->items(['pagination' => ['pageSize' => 2]])
+            'items' => $cat->items(['tags' => $tag, 'pagination' => ['pageSize' => 2]])
         ]);
     }
 

@@ -5,9 +5,11 @@ use yii\easyii\modules\news\api\News;
 
 class NewsController extends \yii\web\Controller
 {
-    public function actionIndex()
+    public function actionIndex($tag = null)
     {
-        return $this->render('index');
+        return $this->render('index',[
+            'news' => News::items(['tags' => $tag, 'pagination' => ['pageSize' => 2]])
+        ]);
     }
 
     public function actionView($slug)
