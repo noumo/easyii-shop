@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $article->model->title;
 <?php endif; ?>
 <p>
     <?php foreach($article->tags as $tag) : ?>
-        <a href="<?= Url::to(['/articles/cat', 'slug' => $article->cat->slug, 'tag' => $tag]) ?>" class="label label-info"><?= $tag ?></a>
+        <a href="<?= Url::to(['/articles/tag', 'slug' => $article->cat->slug, 'tag' => $tag]) ?>" class="label label-info"><?= $tag ?></a>
     <?php endforeach; ?>
 </p>
 
