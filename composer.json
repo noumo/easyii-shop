@@ -13,7 +13,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
-        "noumo/easyii": "dev-test"
+        "noumo/easyii": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
