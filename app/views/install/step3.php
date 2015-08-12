@@ -6,7 +6,10 @@ $this->title = 'EasyiiCMS installation step 3';
 
 <?= $this->render('_steps', ['currentStep' => 3])?>
 
-<div class="alert alert-danger">Highly recommended to delete <code>app/controllers/InstallController</code>, after installation.</div>
+<div class="alert alert-danger">
+    Highly recommended to delete a file <code>app/controllers/InstallController</code> and
+    a folder <code>app/views/install</code>, after installation.
+</div>
 <h2>Data insert log</h2>
 <div class="well well-sm text-left">
     <?php foreach($result as $item) : ?>
