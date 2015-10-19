@@ -297,11 +297,11 @@ class InstallController extends \yii\web\Controller
                 'cpu' => 1,
                 'color' => ['White', 'Red', 'Blue']
             ],
-            'image_file' => '/uploads/catalog/3310.jpg',
+            'image_file' => 'catalog/3310.jpg',
             'time' => $time
         ]);
         $item1->save();
-        $this->attachPhotos($item1, ['/uploads/photos/3310-1.jpg', '/uploads/photos/3310-2.jpg']);
+        $this->attachPhotos($item1, ['photos/3310-1.jpg', 'uploads/photos/3310-2.jpg']);
         $this->attachSeo($item1, 'Nokia 3310');
 
         $item2 = new catalog\models\Item([
@@ -318,11 +318,11 @@ class InstallController extends \yii\web\Controller
                 'cpu' => 8,
                 'features' => ['Wi-fi', 'GPS']
             ],
-            'image_file' => '/uploads/catalog/galaxy.jpg',
+            'image_file' => 'catalog/galaxy.jpg',
             'time' => $time - 86400
         ]);
         $item2->save();
-        $this->attachPhotos($item2, ['/uploads/photos/galaxy-1.jpg', '/uploads/photos/galaxy-2.jpg', '/uploads/photos/galaxy-3.jpg', '/uploads/photos/galaxy-4.jpg']);
+        $this->attachPhotos($item2, ['photos/galaxy-1.jpg', 'photos/galaxy-2.jpg', 'photos/galaxy-3.jpg', 'photos/galaxy-4.jpg']);
         $this->attachSeo($item2, 'Samsung Galaxy S6');
 
         $item3 = new catalog\models\Item([
@@ -339,11 +339,11 @@ class InstallController extends \yii\web\Controller
                 'cpu' => 4,
                 'features' => ['Wi-fi', '4G', 'GPS']
             ],
-            'image_file' => '/uploads/catalog/iphone.jpg',
+            'image_file' => 'catalog/iphone.jpg',
             'time' => $time - 86400 * 2
         ]);
         $item3->save();
-        $this->attachPhotos($item3, ['/uploads/photos/iphone-1.jpg', '/uploads/photos/iphone-2.jpg', '/uploads/photos/iphone-3.jpg', '/uploads/photos/iphone-4.jpg']);
+        $this->attachPhotos($item3, ['photos/iphone-1.jpg', 'photos/iphone-2.jpg', 'photos/iphone-3.jpg', 'photos/iphone-4.jpg']);
         $this->attachSeo($item3, 'Apple Iphone 6');
 
         return 'Catalog data inserted.';
@@ -360,19 +360,19 @@ class InstallController extends \yii\web\Controller
 
         $news1 = new News([
             'title' => 'First news title',
-            'image_file' => '/uploads/news/news-1.jpg',
+            'image_file' => 'news/news-1.jpg',
             'short' => 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt molliti',
             'text' => '<p><strong>Sed ut perspiciatis</strong>, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.&nbsp;</p><ul><li>item 1</li><li>item 2</li><li>item 3</li></ul><p>ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>',
             'tagNames' => 'php, yii2, jquery',
             'time' => $time
         ]);
         $news1->save();
-        $this->attachPhotos($news1, ['/uploads/photos/news-1-1.jpg', '/uploads/photos/news-1-2.jpg', '/uploads/photos/news-1-3.jpg', '/uploads/photos/news-1-4.jpg']);
+        $this->attachPhotos($news1, ['photos/news-1-1.jpg', 'photos/news-1-2.jpg', 'photos/news-1-3.jpg', 'photos/news-1-4.jpg']);
         $this->attachSeo($news1, 'First news H1');
 
         $news2 = new News([
             'title' => 'Second news title',
-            'image_file' => '/uploads/news/news-2.jpg',
+            'image_file' => 'news/news-2.jpg',
             'short' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip',
             'text' => '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p><ol> <li>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </li><li>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</li></ol>',
             'tagNames' => 'yii2, jquery, html',
@@ -383,7 +383,7 @@ class InstallController extends \yii\web\Controller
 
         $news3 = new News([
             'title' => 'Third news title',
-            'image_file' => '/uploads/news/news-3.jpg',
+            'image_file' => 'news/news-3.jpg',
             'short' => 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt molliti',
             'text' => '<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>',
             'time' => $time - 86400 * 2
@@ -438,20 +438,20 @@ class InstallController extends \yii\web\Controller
         $article1 = new article\models\Item([
             'category_id' => $root1->primaryKey,
             'title' => 'First article title',
-            'image_file' => '/uploads/article/article-1.jpg',
+            'image_file' => 'article/article-1.jpg',
             'short' => 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt molliti',
             'text' => '<p><strong>Sed ut perspiciatis</strong>, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.&nbsp;</p><ul><li>item 1</li><li>item 2</li><li>item 3</li></ul><p>ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>',
             'tagNames' => 'php, css, bootstrap',
             'time' => $time
         ]);
         $article1->save();
-        $this->attachPhotos($article1, ['/uploads/photos/article-1-1.jpg', '/uploads/photos/article-1-2.jpg', '/uploads/photos/article-1-3.jpg', '/uploads/photos/news-1-4.jpg']);
+        $this->attachPhotos($article1, ['photos/article-1-1.jpg', 'photos/article-1-2.jpg', 'photos/article-1-3.jpg', 'photos/news-1-4.jpg']);
         $this->attachSeo($article1, 'First article H1');
 
         $article2 = new article\models\Item([
             'category_id' => $root1->primaryKey,
             'title' => 'Second article title',
-            'image_file' => '/uploads/article/article-2.jpg',
+            'image_file' => 'article/article-2.jpg',
             'short' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip',
             'text' => '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p><ol> <li>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </li><li>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</li></ol>',
             'tagNames' => 'yii2, jquery, ajax',
@@ -463,7 +463,7 @@ class InstallController extends \yii\web\Controller
         $article3 = new article\models\Item([
             'category_id' => $root1->primaryKey,
             'title' => 'Third article title',
-            'image_file' => '/uploads/article/article-3.jpg',
+            'image_file' => 'article/article-3.jpg',
             'short' => 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt molliti',
             'text' => '<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>',
             'time' => $time - 86400 * 2
@@ -483,27 +483,27 @@ class InstallController extends \yii\web\Controller
 
         $album1 = new gallery\models\Category([
             'title' => 'Album 1',
-            'image_file' => '/uploads/gallery/album-1.jpg',
+            'image_file' => 'gallery/album-1.jpg',
             'tagNames' => 'php, css, bootstrap',
             'order_num' => 2
         ]);
         $album1->makeRoot();
         $this->attachSeo($album1, 'Album 1 H1', 'Extended Album 1 title');
         $this->attachPhotos($album1, [
-            '/uploads/photos/album-1-9.jpg',
-            '/uploads/photos/album-1-8.jpg',
-            '/uploads/photos/album-1-7.jpg',
-            '/uploads/photos/album-1-6.jpg',
-            '/uploads/photos/album-1-5.jpg',
-            '/uploads/photos/album-1-4.jpg',
-            '/uploads/photos/album-1-3.jpg',
-            '/uploads/photos/album-1-2.jpg',
-            '/uploads/photos/album-1-1.jpg'
+            'photos/album-1-9.jpg',
+            'photos/album-1-8.jpg',
+            'photos/album-1-7.jpg',
+            'photos/album-1-6.jpg',
+            'photos/album-1-5.jpg',
+            'photos/album-1-4.jpg',
+            'photos/album-1-3.jpg',
+            'photos/album-1-2.jpg',
+            'photos/album-1-1.jpg'
         ]);
 
         $album2 = new gallery\models\Category([
             'title' => 'Album 2',
-            'image_file' => '/uploads/gallery/album-2.jpg',
+            'image_file' => 'gallery/album-2.jpg',
             'tagNames' => 'jquery, bootstrap',
             'order_num' => 1
         ]);
@@ -585,19 +585,19 @@ class InstallController extends \yii\web\Controller
         $this->db->createCommand('TRUNCATE TABLE `'.Carousel::tableName().'`')->query();
 
         (new Carousel([
-            'image_file' => '/uploads/carousel/1.jpg',
+            'image_file' => 'carousel/1.jpg',
             'title' => 'Ut enim ad minim veniam, quis nostrud exercitation',
             'text' => 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.',
         ]))->save();
 
         (new Carousel([
-            'image_file' => '/uploads/carousel/2.jpg',
+            'image_file' => 'carousel/2.jpg',
             'title' => 'Sed do eiusmod tempor incididunt ut labore et',
             'text' => 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
         ]))->save();
 
         (new Carousel([
-            'image_file' => '/uploads/carousel/3.jpg',
+            'image_file' => 'carousel/3.jpg',
             'title' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
             'text' => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
         ]))->save();
@@ -615,7 +615,7 @@ class InstallController extends \yii\web\Controller
 
         (new File([
             'title' => 'Price list',
-            'file' => '/uploads/files/example.csv',
+            'file' => 'files/example.csv',
             'size' => 104
         ]))->save();
 
