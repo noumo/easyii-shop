@@ -297,7 +297,7 @@ class InstallController extends \yii\web\Controller
                 'cpu' => 1,
                 'color' => ['White', 'Red', 'Blue']
             ],
-            'image' => '/uploads/catalog/3310.jpg',
+            'image_file' => '/uploads/catalog/3310.jpg',
             'time' => $time
         ]);
         $item1->save();
@@ -318,7 +318,7 @@ class InstallController extends \yii\web\Controller
                 'cpu' => 8,
                 'features' => ['Wi-fi', 'GPS']
             ],
-            'image' => '/uploads/catalog/galaxy.jpg',
+            'image_file' => '/uploads/catalog/galaxy.jpg',
             'time' => $time - 86400
         ]);
         $item2->save();
@@ -339,7 +339,7 @@ class InstallController extends \yii\web\Controller
                 'cpu' => 4,
                 'features' => ['Wi-fi', '4G', 'GPS']
             ],
-            'image' => '/uploads/catalog/iphone.jpg',
+            'image_file' => '/uploads/catalog/iphone.jpg',
             'time' => $time - 86400 * 2
         ]);
         $item3->save();
@@ -360,7 +360,7 @@ class InstallController extends \yii\web\Controller
 
         $news1 = new News([
             'title' => 'First news title',
-            'image' => '/uploads/news/news-1.jpg',
+            'image_file' => '/uploads/news/news-1.jpg',
             'short' => 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt molliti',
             'text' => '<p><strong>Sed ut perspiciatis</strong>, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.&nbsp;</p><ul><li>item 1</li><li>item 2</li><li>item 3</li></ul><p>ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>',
             'tagNames' => 'php, yii2, jquery',
@@ -372,7 +372,7 @@ class InstallController extends \yii\web\Controller
 
         $news2 = new News([
             'title' => 'Second news title',
-            'image' => '/uploads/news/news-2.jpg',
+            'image_file' => '/uploads/news/news-2.jpg',
             'short' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip',
             'text' => '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p><ol> <li>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </li><li>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</li></ol>',
             'tagNames' => 'yii2, jquery, html',
@@ -383,7 +383,7 @@ class InstallController extends \yii\web\Controller
 
         $news3 = new News([
             'title' => 'Third news title',
-            'image' => '/uploads/news/news-3.jpg',
+            'image_file' => '/uploads/news/news-3.jpg',
             'short' => 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt molliti',
             'text' => '<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>',
             'time' => $time - 86400 * 2
@@ -438,7 +438,7 @@ class InstallController extends \yii\web\Controller
         $article1 = new article\models\Item([
             'category_id' => $root1->primaryKey,
             'title' => 'First article title',
-            'image' => '/uploads/article/article-1.jpg',
+            'image_file' => '/uploads/article/article-1.jpg',
             'short' => 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt molliti',
             'text' => '<p><strong>Sed ut perspiciatis</strong>, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.&nbsp;</p><ul><li>item 1</li><li>item 2</li><li>item 3</li></ul><p>ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?</p>',
             'tagNames' => 'php, css, bootstrap',
@@ -451,7 +451,7 @@ class InstallController extends \yii\web\Controller
         $article2 = new article\models\Item([
             'category_id' => $root1->primaryKey,
             'title' => 'Second article title',
-            'image' => '/uploads/article/article-2.jpg',
+            'image_file' => '/uploads/article/article-2.jpg',
             'short' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip',
             'text' => '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p><ol> <li>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </li><li>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</li></ol>',
             'tagNames' => 'yii2, jquery, ajax',
@@ -463,7 +463,7 @@ class InstallController extends \yii\web\Controller
         $article3 = new article\models\Item([
             'category_id' => $root1->primaryKey,
             'title' => 'Third article title',
-            'image' => '/uploads/article/article-3.jpg',
+            'image_file' => '/uploads/article/article-3.jpg',
             'short' => 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt molliti',
             'text' => '<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>',
             'time' => $time - 86400 * 2
@@ -483,7 +483,7 @@ class InstallController extends \yii\web\Controller
 
         $album1 = new gallery\models\Category([
             'title' => 'Album 1',
-            'image' => '/uploads/gallery/album-1.jpg',
+            'image_file' => '/uploads/gallery/album-1.jpg',
             'tagNames' => 'php, css, bootstrap',
             'order_num' => 2
         ]);
@@ -503,7 +503,7 @@ class InstallController extends \yii\web\Controller
 
         $album2 = new gallery\models\Category([
             'title' => 'Album 2',
-            'image' => '/uploads/gallery/album-2.jpg',
+            'image_file' => '/uploads/gallery/album-2.jpg',
             'tagNames' => 'jquery, bootstrap',
             'order_num' => 1
         ]);
@@ -585,19 +585,19 @@ class InstallController extends \yii\web\Controller
         $this->db->createCommand('TRUNCATE TABLE `'.Carousel::tableName().'`')->query();
 
         (new Carousel([
-            'image' => '/uploads/carousel/1.jpg',
+            'image_file' => '/uploads/carousel/1.jpg',
             'title' => 'Ut enim ad minim veniam, quis nostrud exercitation',
             'text' => 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.',
         ]))->save();
 
         (new Carousel([
-            'image' => '/uploads/carousel/2.jpg',
+            'image_file' => '/uploads/carousel/2.jpg',
             'title' => 'Sed do eiusmod tempor incididunt ut labore et',
             'text' => 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
         ]))->save();
 
         (new Carousel([
-            'image' => '/uploads/carousel/3.jpg',
+            'image_file' => '/uploads/carousel/3.jpg',
             'title' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
             'text' => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
         ]))->save();
@@ -792,7 +792,7 @@ class InstallController extends \yii\web\Controller
             (new Photo([
                 'class' => $class,
                 'item_id' => $model->primaryKey,
-                'image' => $file
+                'image_file' => $file
             ]))->save();
         }
     }
