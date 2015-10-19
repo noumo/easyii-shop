@@ -8,6 +8,7 @@ use yii\easyii\models\Photo;
 use yii\easyii\models\SeoText;
 use yii\easyii\modules\carousel\models\Carousel;
 use yii\easyii\modules\catalog;
+use yii\easyii\modules\entity;
 use yii\easyii\modules\article;
 use yii\easyii\modules\faq\models\Faq;
 use yii\easyii\modules\file\models\File;
@@ -81,6 +82,7 @@ class InstallController extends \yii\web\Controller
         $result[] = $this->insertFaq();
         $result[] = $this->insertCarousel();
         $result[] = $this->insertFiles();
+        $result[] = $this->insertEntities();
 
         return $this->render('step3', ['result' => $result]);
     }
@@ -482,6 +484,7 @@ class InstallController extends \yii\web\Controller
         $album1 = new gallery\models\Category([
             'title' => 'Album 1',
             'image' => '/uploads/gallery/album-1.jpg',
+            'tagNames' => 'php, css, bootstrap',
             'order_num' => 2
         ]);
         $album1->makeRoot();
@@ -501,6 +504,7 @@ class InstallController extends \yii\web\Controller
         $album2 = new gallery\models\Category([
             'title' => 'Album 2',
             'image' => '/uploads/gallery/album-2.jpg',
+            'tagNames' => 'jquery, bootstrap',
             'order_num' => 1
         ]);
         $album2->makeRoot();
@@ -554,17 +558,20 @@ class InstallController extends \yii\web\Controller
 
         (new Faq([
             'question' => 'Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it?',
-            'answer' => 'But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure'
+            'answer' => 'But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure',
+            'tagNames' => 'php, css, bootstrap',
         ]))->save();
 
         (new Faq([
             'question' => 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum?',
-            'answer' => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta <a href="http://easyiicms.com/">sunt explicabo</a>.'
+            'answer' => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta <a href="http://easyiicms.com/">sunt explicabo</a>.',
+            'tagNames' => 'jquery, css',
         ]))->save();
 
         (new Faq([
             'question' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            'answer' => 't enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+            'answer' => 't enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            'tagNames' => 'php, jquery, seo',
         ]))->save();
 
         return 'Faq data inserted.';
@@ -613,6 +620,170 @@ class InstallController extends \yii\web\Controller
         ]))->save();
 
         return 'File data inserted.';
+    }
+
+    public function insertEntities()
+    {
+        if(entity\models\Category::find()->count()){
+            return '`<b>' . entity\models\Category::tableName() . '</b>` table is not empty, skipping...';
+        }
+        $this->db->createCommand('TRUNCATE TABLE `'.entity\models\Category::tableName().'`')->query();
+
+        $menuFields = [
+            [
+                'name' => 'link',
+                'title' => 'Link',
+                'type' => 'string',
+                'options' => ''
+            ],
+            [
+                'name' => 'controller',
+                'title' => 'Controller',
+                'type' => 'string',
+                'options' => ''
+            ],
+        ];
+
+        $menuCat = new entity\models\Category([
+            'title' => 'Menu',
+            'fields' => $menuFields,
+            'cache' => 1
+        ]);
+        $menuCat->makeRoot();
+
+        $featureFields = [
+            [
+                'name' => 'description',
+                'title' => 'Description',
+                'type' => 'string',
+                'options' => ''
+            ],
+            [
+                'name' => 'image',
+                'title' => 'Image',
+                'type' => 'file',
+                'options' => ['jpg','jpeg','gif','png','bmp']
+            ],
+        ];
+
+        $featureCat = new entity\models\Category([
+            'title' => 'Features',
+            'fields' => $featureFields,
+            'cache' => 1
+        ]);
+        $featureCat->makeRoot();
+
+        (new entity\models\Item([
+            'category_id' => $menuCat->primaryKey,
+            'title' => 'Home',
+            'data' => [
+                'link' => '/',
+                'controller' => 'site',
+            ],
+            'order_num' => 8
+        ]))->save();
+
+        (new entity\models\Item([
+            'category_id' => $menuCat->primaryKey,
+            'title' => 'Shop',
+            'data' => [
+                'link' => '/shop',
+                'controller' => 'shop',
+            ],
+            'order_num' => 7
+        ]))->save();
+
+        (new entity\models\Item([
+            'category_id' => $menuCat->primaryKey,
+            'title' => 'News',
+            'data' => [
+                'link' => '/news',
+                'controller' => 'news',
+            ],
+            'order_num' => 6
+        ]))->save();
+
+        (new entity\models\Item([
+            'category_id' => $menuCat->primaryKey,
+            'title' => 'Articles',
+            'data' => [
+                'link' => '/articles',
+                'controller' => 'articles',
+            ],
+            'order_num' => 5
+        ]))->save();
+
+        (new entity\models\Item([
+            'category_id' => $menuCat->primaryKey,
+            'title' => 'Gallery',
+            'data' => [
+                'link' => '/gallery',
+                'controller' => 'guestbook',
+            ],
+            'order_num' => 4
+        ]))->save();
+
+        (new entity\models\Item([
+            'category_id' => $menuCat->primaryKey,
+            'title' => 'Guestbook',
+            'data' => [
+                'link' => '/guestbook',
+                'controller' => 'guestbook',
+            ],
+            'order_num' => 3
+        ]))->save();
+
+        (new entity\models\Item([
+            'category_id' => $menuCat->primaryKey,
+            'title' => 'FAQ',
+            'data' => [
+                'link' => '/faq',
+                'controller' => 'faq',
+            ],
+            'order_num' => 2
+        ]))->save();
+
+        (new entity\models\Item([
+            'category_id' => $menuCat->primaryKey,
+            'title' => 'Contact',
+            'data' => [
+                'link' => '/contact',
+                'controller' => 'contact',
+            ],
+            'order_num' => 1
+        ]))->save();
+
+        (new entity\models\Item([
+            'category_id' => $featureCat->primaryKey,
+            'title' => 'Feature 1',
+            'data' => [
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                'image' => 'entity/feature-1.jpg',
+            ],
+            'order_num' => 3
+        ]))->save();
+
+        (new entity\models\Item([
+            'category_id' => $featureCat->primaryKey,
+            'title' => 'Feature 2',
+            'data' => [
+                'description' => 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                'image' => 'entity/feature-2.jpg',
+            ],
+            'order_num' => 2
+        ]))->save();
+
+        (new entity\models\Item([
+            'category_id' => $featureCat->primaryKey,
+            'title' => 'Feature 3',
+            'data' => [
+                'description' => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+                'image' => 'entity/feature-3.jpg',
+            ],
+            'order_num' => 1
+        ]))->save();
+
+        return 'Entity data inserted.';
     }
 
     private function attachPhotos($model, $files){

@@ -17,7 +17,7 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '123',
+            'cookieValidationKey' => '',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -72,7 +72,7 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = 'yii\gii\Module';
     
-    //$config['components']['db']['enableSchemaCache'] = false;
+    $config['components']['db']['enableSchemaCache'] = false;
 }
 
 return array_merge_recursive($config, require($webroot . '/vendor/noumo/easyii/config/easyii.php'));
