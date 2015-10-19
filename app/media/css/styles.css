@@ -7,6 +7,9 @@ html, body{
 body{
     font-family: 'Open Sans', sans-serif;
 }
+blockquote {
+    margin-bottom: 5px;
+}
 #wrapper {
     min-height: 100%;
     height: auto !important;
@@ -30,6 +33,10 @@ footer, .push {
 .small-muted {
     font-size: 12px;
     color: #AAA;
+}
+
+.img-circle {
+    border-radius: 50%;
 }
 
 #page-install h1{

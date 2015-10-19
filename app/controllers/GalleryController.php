@@ -6,9 +6,10 @@ use yii\easyii\modules\gallery\api\Gallery;
 
 class GalleryController extends \yii\web\Controller
 {
-    public function actionIndex()
+    public function actionIndex($tag = null)
     {
-        return $this->render('index');
+        $albums = Gallery::cats(['tags' => $tag]);
+        return $this->render('index', ['albums' => $albums]);
     }
 
     public function actionView($slug)

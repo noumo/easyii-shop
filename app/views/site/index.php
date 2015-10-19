@@ -1,6 +1,8 @@
 <?php
+use yii\easyii\helpers\Image;
 use yii\easyii\modules\article\api\Article;
 use yii\easyii\modules\carousel\api\Carousel;
+use yii\easyii\modules\entity\api\Entity;
 use yii\easyii\modules\gallery\api\Gallery;
 use yii\easyii\modules\guestbook\api\Guestbook;
 use yii\easyii\modules\news\api\News;
@@ -18,6 +20,21 @@ $this->title = $page->seo('title', $page->model->title);
 <div class="text-center">
     <h1><?= Text::get('index-welcome-title') ?></h1>
     <p><?= $page->text ?></p>
+</div>
+
+<br/>
+<hr/>
+
+<div class="row text-center">
+    <h2>Features</h2>
+    <br/>
+    <?php foreach(Entity::cat('features')->items() as $feature) : ?>
+        <div class="col-md-4">
+            <img src="<?= Image::thumb($feature->image, 120, 120) ?>" class="img-circle">
+            <h3><?= $feature->title ?></h3>
+            <p><?= $feature->description ?></p>
+        </div>
+    <?php endforeach;?>
 </div>
 
 <br/>

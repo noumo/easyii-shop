@@ -18,7 +18,6 @@ class ShopController extends \yii\web\Controller
     {
         $filterForm = new GadgetsFilterForm();
         $cat = Catalog::cat($slug);
-
         if(!$cat){
             throw new NotFoundHttpException('Shop category not found.');
         }

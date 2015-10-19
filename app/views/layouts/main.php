@@ -1,9 +1,10 @@
 <?php
+use yii\easyii\modules\entity\api\Entity;
 use yii\easyii\modules\shopcart\api\Shopcart;
 use yii\easyii\modules\subscribe\api\Subscribe;
+use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
-use yii\widgets\Menu;
 
 $goodsCount = count(Shopcart::goods());
 ?>
@@ -23,19 +24,12 @@ $goodsCount = count(Shopcart::goods());
                 </div>
 
                 <div class="collapse navbar-collapse" id="navbar-menu">
-                    <?= Menu::widget([
-                        'options' => ['class' => 'nav navbar-nav'],
-                        'items' => [
-                            ['label' => 'Home', 'url' => ['site/index']],
-                            ['label' => 'Shop', 'url' => ['shop/index']],
-                            ['label' => 'News', 'url' => ['news/index']],
-                            ['label' => 'Articles', 'url' => ['articles/index']],
-                            ['label' => 'Gallery', 'url' => ['gallery/index']],
-                            ['label' => 'Guestbook', 'url' => ['guestbook/index']],
-                            ['label' => 'FAQ', 'url' => ['faq/index']],
-                            ['label' => 'Contact', 'url' => ['/contact/index']],
-                        ],
-                    ]); ?>
+                    <ul class="nav navbar-nav">
+                        <?php foreach(Entity::cat('menu')->items() as $item) : ?>
+                            <li <?= ($this->context->id === $item->controller ? 'class="active"' : '') ?>><?= Html::a($item->title, $item->link) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+
                     <a href="<?= Url::to(['/shopcart']) ?>" class="btn btn-default navbar-btn navbar-right" title="Complete order">
                         <i class="glyphicon glyphicon-shopping-cart"></i>
                         <?php if($goodsCount > 0) : ?>
