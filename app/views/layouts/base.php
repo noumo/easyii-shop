@@ -1,10 +1,11 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 $asset = \app\assets\AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
-<!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+    <!DOCTYPE html>
+    <html lang="<?= Yii::$app->language ?>">
     <head>
         <meta charset="<?= Yii::$app->charset ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,13 +17,13 @@ $asset = \app\assets\AppAsset::register($this);
         <link rel="shortcut icon" href="<?= $asset->baseUrl ?>/favicon.ico" type="image/x-icon">
         <link rel="icon" href="<?= $asset->baseUrl ?>/favicon.ico" type="image/x-icon">
         <?php $this->head() ?>
-        <link href="/app/media/css/styles.css" rel="stylesheet">
+        <link href="<?= Url::to(['/app/media/css/styles.css']) ?>" rel="stylesheet">
     </head>
     <body>
-        <?php $this->beginBody() ?>
-        <?= $content ?>
-        <?php $this->endBody() ?>
-        <script src="/app/media/js/scripts.js"></script>
+    <?php $this->beginBody() ?>
+    <?= $content ?>
+    <?php $this->endBody() ?>
+    <script src="<?= Url::to(['/app/media/js/scripts.js']) ?>"></script>
     </body>
-</html>
+    </html>
 <?php $this->endPage() ?>
