@@ -62,7 +62,6 @@ class InstallController extends \yii\web\Controller
         $this->registerI18n();
 
         $installForm = new InstallForm();
-        $installForm->robot_email = 'noreply@'.Yii::$app->request->serverName;
 
         Yii::$app->session->setFlash(InstallForm::RETURN_URL_KEY, '/install/step3');
 
