@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $page->model->title;
         <div class="col-md-4 col-md-offset-2">
             <h4>Checkout</h4>
             <div class="well well">
-                <?= Shopcart::form(['successUrl' => Url::to('/shopcart/success')])?>
+                <?= Shopcart::form(['successUrl' => Url::to(['/shopcart/success'])])?>
             </div>
         </div>
     </div>
