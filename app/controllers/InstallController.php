@@ -717,7 +717,7 @@ class InstallController extends \yii\web\Controller
             'title' => 'Gallery',
             'data' => [
                 'link' => '/gallery',
-                'controller' => 'guestbook',
+                'controller' => 'gallery',
             ],
             'order_num' => 4
         ]))->save();
