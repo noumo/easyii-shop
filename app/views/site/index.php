@@ -1,11 +1,7 @@
 <?php
 use yii\easyii\helpers\Image;
-use yii\easyii\modules\article\api\Article;
 use yii\easyii\modules\carousel\api\Carousel;
-use yii\easyii\modules\entity\api\Entity;
 use yii\easyii\modules\gallery\api\Gallery;
-use yii\easyii\modules\guestbook\api\Guestbook;
-use yii\easyii\modules\news\api\News;
 use yii\easyii\modules\page\api\Page;
 use yii\easyii\modules\text\api\Text;
 use yii\helpers\Html;
@@ -28,7 +24,7 @@ $this->title = $page->seo('title', $page->model->title);
 <div class="row text-center">
     <h2>Features</h2>
     <br/>
-    <?php foreach(Entity::cat('features')->items() as $feature) : ?>
+    <?php foreach($features as $feature) : ?>
         <div class="col-md-4">
             <img src="<?= Image::thumb($feature->image, 120, 120) ?>" class="img-circle">
             <h3><?= $feature->title ?></h3>
@@ -43,7 +39,7 @@ $this->title = $page->seo('title', $page->model->title);
 <div class="text-center">
     <h2>Last photos</h2>
     <br/>
-    <?php foreach(Gallery::last(6) as $photo) : ?>
+    <?php foreach($lastPhotos as $photo) : ?>
         <?= $photo->box(180, 135) ?>
     <?php endforeach;?>
     <?php Gallery::plugin() ?>
@@ -52,34 +48,37 @@ $this->title = $page->seo('title', $page->model->title);
 <br/>
 <hr/>
 
-<div class="text-center">
-    <h2>Last news</h2>
-    <blockquote class="text-left">
-        <?= Html::a(News::last()->title, ['news/view', 'slug' => News::last()->slug]) ?>
-        <br/>
-        <?= News::last()->short ?>
-    </blockquote>
-</div>
+<?php if($lastNews) : ?>
+    <div class="text-center">
+        <h2>Last news</h2>
+        <blockquote class="text-left">
+            <?= Html::a($lastNews->title, ['news/view', 'slug' => $lastNews->slug]) ?>
+            <br/>
+            <?= $lastNews->short ?>
+        </blockquote>
+    </div>
+<?php endif; ?>
 
 <br/>
 <hr/>
 
-
-<div class="text-center">
-    <h2>Last article from category #1</h2>
-    <br/>
-    <div class="row text-left">
-        <?php $article = Article::last(1, ['category_id' => 1]); ?>
-        <div class="col-md-2">
-            <?= Html::img($article->thumb(160, 120)) ?>
-        </div>
-        <div class="col-md-10 text-left">
-            <?= Html::a($article->title, ['articles/view', 'slug' => $article->slug]) ?>
-            <br/>
-            <?= $article->short ?>
+<?php if($lastArticle) : ?>
+    <div class="text-center">
+        <h2>Last article from category #1</h2>
+        <br/>
+        <div class="row text-left">
+            <?php ?>
+            <div class="col-md-2">
+                <?= Html::img($lastArticle->thumb(160, 120)) ?>
+            </div>
+            <div class="col-md-10 text-left">
+                <?= Html::a($lastArticle->title, ['articles/view', 'slug' => $lastArticle->slug]) ?>
+                <br/>
+                <?= $lastArticle->short ?>
+            </div>
         </div>
     </div>
-</div>
+<?php endif; ?>
 
 <br/>
 <hr/>
@@ -88,7 +87,7 @@ $this->title = $page->seo('title', $page->model->title);
     <h2>Last reviews</h2>
     <br/>
     <div class="row text-left">
-        <?php foreach(Guestbook::last(2) as $post) : ?>
+        <?php foreach($lastPosts as $post) : ?>
             <div class="col-md-6">
                 <b><?= $post->name ?></b>
                 <p class="text-muted"><?= $post->text ?></p>
