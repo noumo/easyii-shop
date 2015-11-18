@@ -300,7 +300,7 @@ class InstallController extends \yii\web\Controller
             'time' => $time
         ]);
         $item1->save();
-        $this->attachPhotos($item1, ['photos/3310-1.jpg', 'uploads/photos/3310-2.jpg']);
+        $this->attachPhotos($item1, ['photos/3310-1.jpg', 'photos/3310-2.jpg']);
         $this->attachSeo($item1, 'Nokia 3310');
 
         $item2 = new catalog\models\Item([
