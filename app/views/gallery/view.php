@@ -2,6 +2,10 @@
 use yii\easyii\modules\gallery\api\Gallery;
 
 $this->title = $album->seo('title', $album->model->title);
+
+$this->params['keywords'] = $album->seo('keywords');
+$this->params['description'] = $album->seo('description');
+
 $this->params['breadcrumbs'][] = ['label' => 'Gallery', 'url' => ['gallery/index']];
 $this->params['breadcrumbs'][] = $album->model->title;
 ?>
