@@ -10,6 +10,7 @@ $this->params['description'] = $cat->seo('description');
 
 $this->params['breadcrumbs'][] = ['label' => 'Shop', 'url' => ['shop/index']];
 $this->params['breadcrumbs'][] = $cat->model->title;
+
 ?>
 <h1><?= $cat->seo('h1', $cat->title) ?></h1>
 <br/>
@@ -43,4 +44,4 @@ $this->params['breadcrumbs'][] = $cat->model->title;
 
 
 
-<?= $cat->pages() ?>
+<?= $cat->pages ?>

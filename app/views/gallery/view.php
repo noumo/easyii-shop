@@ -23,4 +23,4 @@ $this->params['breadcrumbs'][] = $album->model->title;
 <?php else : ?>
     <p>Album is empty.</p>
 <?php endif; ?>
-<?= $album->pages() ?>
+<?= $album->pages ?>

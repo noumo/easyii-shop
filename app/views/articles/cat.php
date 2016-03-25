@@ -31,4 +31,4 @@ $this->params['breadcrumbs'][] = $cat->model->title;
     <p>Category is empty</p>
 <?php endif; ?>
 
-<?= $cat->pages() ?>
+<?= $cat->pages ?>

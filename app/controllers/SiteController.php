@@ -31,7 +31,7 @@ class SiteController extends Controller
         $lastArticle = Article::last(1, ['category_id' => 1]);
 
         return $this->render('index', [
-            'features' => Entity::cat('features')->items(),
+            'features' => Entity::cat('features')->items,
             'lastPhotos' => Gallery::last(6),
             'lastNews' => count($lastNews) ? $lastNews[0] : null,
             'lastArticle' => count($lastArticle) ? $lastArticle[0] : null,

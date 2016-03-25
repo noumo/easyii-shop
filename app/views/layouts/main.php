@@ -25,7 +25,7 @@ $goodsCount = count(Shopcart::goods());
 
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav">
-                        <?php foreach(Entity::cat('menu')->items() as $item) : ?>
+                        <?php foreach(Entity::cat('menu')->items as $item) : ?>
                             <li <?= ($this->context->id === $item->controller ? 'class="active"' : '') ?>><?= Html::a($item->title, [$item->link]) ?></li>
                         <?php endforeach; ?>
                     </ul>

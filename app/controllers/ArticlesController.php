@@ -20,7 +20,7 @@ class ArticlesController extends \yii\web\Controller
 
         return $this->render('cat', [
             'cat' => $cat,
-            'items' => $cat->items(['tags' => $tag, 'pagination' => ['pageSize' => 2]])
+            'items' => $cat->getItems(['tags' => $tag, 'pagination' => ['pageSize' => 2]])
         ]);
     }
 
