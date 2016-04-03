@@ -125,7 +125,7 @@ class InstallController extends \yii\web\Controller
             'text' => '<p><strong>All elements are live-editable, switch on Live Edit button to see this feature.</strong>&nbsp;</p><p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
             'slug' => 'page-index'
         ]);
-        $page1->save();
+        $page1->create();
         $this->attachSeo($page1, '', 'EasyiiCMS demo', 'yii2, easyii, admin');
 
         $page2 = new Page([
@@ -133,7 +133,7 @@ class InstallController extends \yii\web\Controller
             'text' => '',
             'slug' => 'page-shop'
         ]);
-        $page2->save();
+        $page2->create();
         $this->attachSeo($page2, 'Shop categories', 'Extended shop title');
 
         $page3 = new Page([
@@ -141,7 +141,7 @@ class InstallController extends \yii\web\Controller
             'text' => '',
             'slug' => 'page-shop-search'
         ]);
-        $page3->save();
+        $page3->create();
         $this->attachSeo($page3, 'Shop search results', 'Extended shop search title');
 
         $page4 = new Page([
@@ -149,7 +149,7 @@ class InstallController extends \yii\web\Controller
             'text' => '',
             'slug' => 'page-shopcart'
         ]);
-        $page4->save();
+        $page4->create();
         $this->attachSeo($page4, 'Shopping cart H1', 'Extended shopping cart title');
 
         $page5 = new Page([
@@ -157,7 +157,7 @@ class InstallController extends \yii\web\Controller
             'text' => '<p>Your order successfully created. Our manager will contact you as soon as possible.</p>',
             'slug' => 'page-shopcart-success'
         ]);
-        $page5->save();
+        $page5->create();
         $this->attachSeo($page5, 'Success', 'Extended order success title');
 
         $page6 = new Page([
@@ -165,7 +165,7 @@ class InstallController extends \yii\web\Controller
             'text' => '',
             'slug' => 'page-news'
         ]);
-        $page6->save();
+        $page6->create();
         $this->attachSeo($page6, 'News H1', 'Extended news title');
 
         $page7 = new Page([
@@ -173,7 +173,7 @@ class InstallController extends \yii\web\Controller
             'text' => '',
             'slug' => 'page-articles'
         ]);
-        $page7->save();
+        $page7->create();
         $this->attachSeo($page7, 'Articles H1', 'Extended articles title');
 
         $page8 = new Page([
@@ -181,7 +181,7 @@ class InstallController extends \yii\web\Controller
             'text' => '',
             'slug' => 'page-gallery'
         ]);
-        $page8->save();
+        $page8->create();
         $this->attachSeo($page8, 'Photo gallery', 'Extended gallery title');
 
         $page9 = new Page([
@@ -189,7 +189,7 @@ class InstallController extends \yii\web\Controller
             'text' => '',
             'slug' => 'page-guestbook'
         ]);
-        $page9->save();
+        $page9->create();
         $this->attachSeo($page9, 'Guestbook H1', 'Extended guestbook title');
 
         $page10 = new Page([
@@ -197,7 +197,7 @@ class InstallController extends \yii\web\Controller
             'text' => '',
             'slug' => 'page-faq'
         ]);
-        $page10->save();
+        $page10->create();
         $this->attachSeo($page10, 'Frequently Asked Question', 'Extended faq title');
 
         $page11 = new Page([
@@ -205,7 +205,7 @@ class InstallController extends \yii\web\Controller
             'text' => '<p><strong>Address</strong>: Dominican republic, Santo Domingo, Some street 123</p><p><strong>ZIP</strong>: 123456</p><p><strong>Phone</strong>: +1 234 56-78</p><p><strong>E-mail</strong>: demo@example.com</p>',
             'slug' => 'page-contact'
         ]);
-        $page11->save();
+        $page11->create();
         $this->attachSeo($page11, 'Contact us', 'Extended contact title');
 
         return 'Page data inserted.';
@@ -261,20 +261,20 @@ class InstallController extends \yii\web\Controller
             'title' => 'Gadgets',
             'fields' => $fields,
         ]);
-        $root->makeRoot();
+        $root->create();
 
         $cat1 = new catalog\models\Category([
             'title' => 'Smartphones',
             'fields' => $fields,
         ]);
-        $cat1->appendTo($root);
+        $cat1->create($root->id);
         $this->attachSeo($cat1, 'Smartphones H1', 'Extended smartphones title');
 
         $cat2 = new catalog\models\Category([
             'title' => 'Tablets',
             'fields' => $fields,
         ]);
-        $cat2->appendTo($root);
+        $cat2->create($root->id);
         $this->attachSeo($cat2, 'Tablets H1', 'Extended tablets title');
 
         if(catalog\models\Item::find()->count()){
@@ -648,7 +648,7 @@ class InstallController extends \yii\web\Controller
             'fields' => $menuFields,
             'cache' => 1
         ]);
-        $menuCat->makeRoot();
+        $menuCat->create();
 
         $featureFields = [
             [
@@ -670,7 +670,7 @@ class InstallController extends \yii\web\Controller
             'fields' => $featureFields,
             'cache' => 1
         ]);
-        $featureCat->makeRoot();
+        $featureCat->create();
 
         (new entity\models\Item([
             'category_id' => $menuCat->primaryKey,
