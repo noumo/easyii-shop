@@ -21,7 +21,7 @@ class GalleryController extends \yii\web\Controller
 
         return $this->render('view', [
             'album' => $album,
-            'photos' => $album->photos(['pagination' => ['pageSize' => 4]])
+            'photos' => $album->getPhotos(['pagination' => ['pageSize' => 4]])
         ]);
     }
 }
