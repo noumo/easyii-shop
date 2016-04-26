@@ -30,6 +30,7 @@ $config = [
         ],
         'urlManager' => [
             'rules' => [
+                'about/<subpage:[\w-]+>' => 'about/index',
                 '<controller:\w+>/view/<slug:[\w-]+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/cat/<slug:[\w-]+>' => '<controller>/cat',
