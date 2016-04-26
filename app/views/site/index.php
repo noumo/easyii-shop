@@ -6,9 +6,10 @@ use yii\easyii\modules\page\api\Page;
 use yii\easyii\modules\text\api\Text;
 use yii\helpers\Html;
 
-$page = Page::get('page-index');
+$page = Page::get('index');
+$plainPageTitle = $page->getTitle(false);
 
-$this->title = $page->seo('title', $page->model->title);
+$this->title = $page->seo('title', $plainPageTitle);
 ?>
 
 <?= Carousel::widget(1140, 520) ?>

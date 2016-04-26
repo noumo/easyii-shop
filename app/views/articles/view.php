@@ -1,15 +1,18 @@
 <?php
 use yii\easyii\modules\article\api\Article;
+use yii\easyii\modules\page\api\Page;
 use yii\helpers\Url;
 
-$this->title = $article->seo('title', $article->model->title);
+$plainPageTitle = $article->getTitle(false);
+
+$this->title = $article->seo('title', $plainPageTitle);
 
 $this->params['keywords'] = $article->seo('keywords');
 $this->params['description'] = $article->seo('description');
 
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['articles/index']];
+$this->params['breadcrumbs'][] = ['label' => Page::get('articles')->getTitle(false), 'url' => ['articles/index']];
 $this->params['breadcrumbs'][] = ['label' => $article->cat->title, 'url' => ['articles/cat', 'slug' => $article->cat->slug]];
-$this->params['breadcrumbs'][] = $article->model->title;
+$this->params['breadcrumbs'][] = $plainPageTitle;
 ?>
 <h1><?= $article->seo('h1', $article->title) ?></h1>
 

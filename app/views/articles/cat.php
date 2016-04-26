@@ -1,10 +1,13 @@
 <?php
+use yii\easyii\modules\page\api\Page;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$this->title = $cat->seo('title', $cat->model->title);
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['articles/index']];
-$this->params['breadcrumbs'][] = $cat->model->title;
+$plainPageTitle = $cat->getTitle(false);
+
+$this->title = $cat->seo('title', $plainPageTitle);
+$this->params['breadcrumbs'][] = ['label' => Page::get('articles')->getTitle(false), 'url' => ['articles/index']];
+$this->params['breadcrumbs'][] = $plainPageTitle;
 ?>
 <h1><?= $cat->seo('h1', $cat->title) ?></h1>
 <br/>

@@ -1,5 +1,5 @@
 <?php
-use yii\easyii\modules\entity\api\Entity;
+use yii\easyii\modules\page\api\Page;
 use yii\easyii\modules\shopcart\api\Shopcart;
 use yii\easyii\modules\subscribe\api\Subscribe;
 use yii\helpers\Html;
@@ -9,6 +9,7 @@ use yii\widgets\Breadcrumbs;
 $goodsCount = count(Shopcart::goods());
 ?>
 <?php $this->beginContent('@app/views/layouts/base.php'); ?>
+
 <div id="wrapper" class="container">
     <header>
         <nav class="navbar navbar-default">
@@ -25,8 +26,8 @@ $goodsCount = count(Shopcart::goods());
 
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav">
-                        <?php foreach(Entity::cat('menu')->items as $item) : ?>
-                            <li <?= ($this->context->id === $item->controller ? 'class="active"' : '') ?>><?= Html::a($item->title, [$item->link]) ?></li>
+                        <?php foreach(Page::menu() as $menuItem) : ?>
+                            <li <?= ($menuItem['active'] ? 'class="active"' : '') ?>><?= Html::a($menuItem['label'], $menuItem['url']) ?></li>
                         <?php endforeach; ?>
                     </ul>
 

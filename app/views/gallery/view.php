@@ -1,13 +1,16 @@
 <?php
 use yii\easyii\modules\gallery\api\Gallery;
+use yii\easyii\modules\page\api\Page;
 
-$this->title = $album->seo('title', $album->model->title);
+$plainPageTitle = $album->getTitle(false);
+
+$this->title = $album->seo('title', $plainPageTitle);
 
 $this->params['keywords'] = $album->seo('keywords');
 $this->params['description'] = $album->seo('description');
 
-$this->params['breadcrumbs'][] = ['label' => 'Gallery', 'url' => ['gallery/index']];
-$this->params['breadcrumbs'][] = $album->model->title;
+$this->params['breadcrumbs'][] = ['label' => Page::get('gallery')->getTitle(false), 'url' => ['gallery/index']];
+$this->params['breadcrumbs'][] = $plainPageTitle;
 ?>
 <h1><?= $album->seo('h1', $album->title) ?></h1>
 

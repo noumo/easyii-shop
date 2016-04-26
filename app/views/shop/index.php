@@ -4,10 +4,11 @@ use yii\easyii\modules\file\api\File;
 use yii\easyii\modules\page\api\Page;
 use yii\helpers\Html;
 
-$page = Page::get('page-shop');
+$page = Page::get('shop');
+$plainPageTitle = $page->getTitle(false);
 
-$this->title = $page->seo('title', $page->model->title);
-$this->params['breadcrumbs'][] = $page->model->title;
+$this->title = $page->seo('title', $plainPageTitle);
+$this->params['breadcrumbs'][] = $plainPageTitle;
 
 function renderNode($node){
     if(!count($node->children)){

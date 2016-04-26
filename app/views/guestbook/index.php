@@ -2,10 +2,11 @@
 use yii\easyii\modules\guestbook\api\Guestbook;
 use yii\easyii\modules\page\api\Page;
 
-$page = Page::get('page-guestbook');
+$page = Page::get('guestbook');
+$plainPageTitle = $page->getTitle(false);
 
-$this->title = $page->seo('title', $page->model->title);
-$this->params['breadcrumbs'][] = $page->model->title;
+$this->title = $page->seo('title', $plainPageTitle);
+$this->params['breadcrumbs'][] = $plainPageTitle;
 ?>
 <h1><?= $page->seo('h1', $page->title) ?></h1>
 

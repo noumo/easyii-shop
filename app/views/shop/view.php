@@ -1,18 +1,20 @@
 <?php
 use app\models\AddToCartForm;
 use yii\easyii\modules\catalog\api\Catalog;
+use yii\easyii\modules\page\api\Page;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
-$this->title = $item->seo('title', $item->model->title);
+$plainPageTitle = $item->getTitle(false);
+
+$this->title = $item->seo('title', $plainPageTitle);
 
 $this->params['keywords'] = $item->seo('keywords');
 $this->params['description'] = $item->seo('description');
-
-$this->params['breadcrumbs'][] = ['label' => 'Shop', 'url' => ['shop/index']];
+$this->params['breadcrumbs'][] = ['label' => Page::get('shop')->getTitle(false), 'url' => ['shop/index']];
 $this->params['breadcrumbs'][] = ['label' => $item->cat->title, 'url' => ['shop/cat', 'slug' => $item->cat->slug]];
-$this->params['breadcrumbs'][] = $item->model->title;
+$this->params['breadcrumbs'][] = $plainPageTitle;
 
 $colors = [];
 if(!empty($item->data->color) && is_array($item->data->color)) {

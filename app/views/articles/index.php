@@ -3,10 +3,11 @@ use yii\easyii\modules\article\api\Article;
 use yii\easyii\modules\page\api\Page;
 use yii\helpers\Html;
 
-$page = Page::get('page-articles');
+$page = Page::get('articles');
+$plainPageTitle = $page->getTitle(false);
 
-$this->title = $page->seo('title', $page->model->title);
-$this->params['breadcrumbs'][] = $page->model->title;
+$this->title = $page->seo('title', $plainPageTitle);
+$this->params['breadcrumbs'][] = $plainPageTitle;
 
 function renderNode($node){
     if(!count($node->children)){

@@ -3,10 +3,11 @@ use yii\easyii\modules\faq\api\Faq;
 use yii\easyii\modules\page\api\Page;
 use yii\helpers\Url;
 
-$page = Page::get('page-faq');
+$page = Page::get('faq');
+$plainPageTitle = $page->getTitle(false);
 
-$this->title = $page->seo('title', $page->model->title);
-$this->params['breadcrumbs'][] = $page->model->title;
+$this->title = $page->seo('title', $plainPageTitle);
+$this->params['breadcrumbs'][] = $plainPageTitle;
 ?>
 <h1><?= $page->seo('h1', $page->title) ?></h1>
 <br/>

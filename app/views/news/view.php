@@ -1,14 +1,17 @@
 <?php
 use yii\easyii\modules\news\api\News;
+use yii\easyii\modules\page\api\Page;
 use yii\helpers\Url;
 
-$this->title = $news->seo('title', $news->model->title);
+$plainPageTitle = $news->getTitle(false);
+
+$this->title = $news->seo('title', $plainPageTitle);
 
 $this->params['keywords'] = $news->seo('keywords');
 $this->params['description'] = $news->seo('description');
 
-$this->params['breadcrumbs'][] = ['label' => 'News', 'url' => ['news/index']];
-$this->params['breadcrumbs'][] = $news->model->title;
+$this->params['breadcrumbs'][] = ['label' => Page::get('news')->getTitle(false), 'url' => ['news/index']];
+$this->params['breadcrumbs'][] = $plainPageTitle;
 ?>
 <h1><?= $news->seo('h1', $news->title) ?></h1>
 

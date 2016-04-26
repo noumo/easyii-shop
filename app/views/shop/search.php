@@ -2,11 +2,12 @@
 use yii\easyii\modules\catalog\api\Catalog;
 use yii\easyii\modules\page\api\Page;
 
-$page = Page::get('page-shop-search');
+$page = Page::get('shop-search');
+$plainPageTitle = $page->getTitle(false);
 
-$this->title = $page->seo('title', $page->model->title);
-$this->params['breadcrumbs'][] = ['label' => 'Shop', 'url' => ['shop/index']];
-$this->params['breadcrumbs'][] = $page->model->title;
+$this->title = $page->seo('title', $plainPageTitle);
+$this->params['breadcrumbs'][] = ['label' => Page::get('shop')->getTitle(false), 'url' => ['shop/index']];
+$this->params['breadcrumbs'][] = $plainPageTitle;
 
 ?>
 <h1><?= $page->seo('h1', $page->title) ?></h1>

@@ -1,15 +1,18 @@
 <?php
+use yii\easyii\modules\page\api\Page;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
-$this->title = $cat->seo('title', $cat->model->title);
+$plainPageTitle = $cat->getTitle(false);
+
+$this->title = $cat->seo('title', $plainPageTitle);
 
 $this->params['keywords'] = $cat->seo('keywords');
 $this->params['description'] = $cat->seo('description');
 
-$this->params['breadcrumbs'][] = ['label' => 'Shop', 'url' => ['shop/index']];
-$this->params['breadcrumbs'][] = $cat->model->title;
+$this->params['breadcrumbs'][] = ['label' => Page::get('shop')->getTitle(false), 'url' => ['shop/index']];
+$this->params['breadcrumbs'][] = $plainPageTitle;
 
 ?>
 <h1><?= $cat->seo('h1', $cat->title) ?></h1>

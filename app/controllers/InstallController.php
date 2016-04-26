@@ -121,92 +121,129 @@ class InstallController extends \yii\web\Controller
         $this->db->createCommand('TRUNCATE TABLE `'.Page::tableName().'`')->query();
 
         $page1 = new Page([
-            'title' => 'Index',
+            'title' => 'Home',
             'text' => '<p><strong>All elements are live-editable, switch on Live Edit button to see this feature.</strong>&nbsp;</p><p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
-            'slug' => 'page-index'
+            'slug' => 'index',
+            'show_in_menu' => 1
         ]);
         $page1->create();
         $this->attachSeo($page1, '', 'EasyiiCMS demo', 'yii2, easyii, admin');
 
         $page2 = new Page([
-            'title' => 'Shop',
-            'text' => '',
-            'slug' => 'page-shop'
+            'title' => 'About',
+            'text' => 'About us text',
+            'slug' => 'about',
+            'show_in_menu' => 1
         ]);
         $page2->create();
-        $this->attachSeo($page2, 'Shop categories', 'Extended shop title');
+        $this->attachSeo($page2, 'About us', 'Extended about us title');
 
         $page3 = new Page([
-            'title' => 'Shop search',
-            'text' => '',
-            'slug' => 'page-shop-search'
+            'title' => 'Subpage 1',
+            'text' => 'Text in subpage 1',
+            'slug' => 'subpage-1',
+            'show_in_menu' => 1
         ]);
-        $page3->create();
-        $this->attachSeo($page3, 'Shop search results', 'Extended shop search title');
+        $page3->create($page2->id);
+        $this->attachSeo($page3, 'Subpage 1 H1', 'Extended subpage 1 title');
 
         $page4 = new Page([
-            'title' => 'Shopping cart',
-            'text' => '',
-            'slug' => 'page-shopcart'
+            'title' => 'Subpage 2',
+            'text' => 'Text in subpage 2',
+            'slug' => 'subpage-2',
+            'show_in_menu' => 1
         ]);
-        $page4->create();
-        $this->attachSeo($page4, 'Shopping cart H1', 'Extended shopping cart title');
+        $page4->create($page2->id);
+        $this->attachSeo($page4, 'Subpage 2 H1', 'Extended subpage 2 title');
 
         $page5 = new Page([
-            'title' => 'Order created',
-            'text' => '<p>Your order successfully created. Our manager will contact you as soon as possible.</p>',
-            'slug' => 'page-shopcart-success'
+            'title' => 'Shop',
+            'text' => '',
+            'slug' => 'shop',
+            'show_in_menu' => 1
         ]);
         $page5->create();
-        $this->attachSeo($page5, 'Success', 'Extended order success title');
+        $this->attachSeo($page5, 'Shop categories', 'Extended shop title');
 
         $page6 = new Page([
-            'title' => 'News',
+            'title' => 'Shop search',
             'text' => '',
-            'slug' => 'page-news'
+            'slug' => 'shop-search',
+            'show_in_menu' => 0
         ]);
         $page6->create();
-        $this->attachSeo($page6, 'News H1', 'Extended news title');
+        $this->attachSeo($page6, 'Shop search results', 'Extended shop search title');
 
         $page7 = new Page([
-            'title' => 'Articles',
+            'title' => 'Shopping cart',
             'text' => '',
-            'slug' => 'page-articles'
+            'slug' => 'shopcart',
+            'show_in_menu' => 0
         ]);
         $page7->create();
-        $this->attachSeo($page7, 'Articles H1', 'Extended articles title');
+        $this->attachSeo($page7, 'Shopping cart H1', 'Extended shopping cart title');
 
         $page8 = new Page([
-            'title' => 'Gallery',
-            'text' => '',
-            'slug' => 'page-gallery'
+            'title' => 'Order created',
+            'text' => '<p>Your order successfully created. Our manager will contact you as soon as possible.</p>',
+            'slug' => 'shopcart-success',
+            'show_in_menu' => 0
         ]);
         $page8->create();
-        $this->attachSeo($page8, 'Photo gallery', 'Extended gallery title');
+        $this->attachSeo($page8, 'Success', 'Extended order success title');
 
         $page9 = new Page([
-            'title' => 'Guestbook',
+            'title' => 'News',
             'text' => '',
-            'slug' => 'page-guestbook'
+            'slug' => 'news',
+            'show_in_menu' => 1
         ]);
         $page9->create();
-        $this->attachSeo($page9, 'Guestbook H1', 'Extended guestbook title');
+        $this->attachSeo($page9, 'News H1', 'Extended news title');
 
         $page10 = new Page([
-            'title' => 'FAQ',
+            'title' => 'Articles',
             'text' => '',
-            'slug' => 'page-faq'
+            'slug' => 'articles',
+            'show_in_menu' => 1
         ]);
         $page10->create();
-        $this->attachSeo($page10, 'Frequently Asked Question', 'Extended faq title');
+        $this->attachSeo($page10, 'Articles H1', 'Extended articles title');
 
         $page11 = new Page([
-            'title' => 'Contact',
-            'text' => '<p><strong>Address</strong>: Dominican republic, Santo Domingo, Some street 123</p><p><strong>ZIP</strong>: 123456</p><p><strong>Phone</strong>: +1 234 56-78</p><p><strong>E-mail</strong>: demo@example.com</p>',
-            'slug' => 'page-contact'
+            'title' => 'Gallery',
+            'text' => '',
+            'slug' => 'gallery',
+            'show_in_menu' => 1
         ]);
         $page11->create();
-        $this->attachSeo($page11, 'Contact us', 'Extended contact title');
+        $this->attachSeo($page11, 'Photo gallery', 'Extended gallery title');
+
+        $page12 = new Page([
+            'title' => 'Guestbook',
+            'text' => '',
+            'slug' => 'guestbook'
+        ]);
+        $page12->create();
+        $this->attachSeo($page12, 'Guestbook H1', 'Extended guestbook title');
+
+        $page13 = new Page([
+            'title' => 'FAQ',
+            'text' => '',
+            'slug' => 'faq',
+            'show_in_menu' => 1
+        ]);
+        $page13->create();
+        $this->attachSeo($page13, 'Frequently Asked Question', 'Extended faq title');
+
+        $page14 = new Page([
+            'title' => 'Contact',
+            'text' => '<p><strong>Address</strong>: Dominican republic, Santo Domingo, Some street 123</p><p><strong>ZIP</strong>: 123456</p><p><strong>Phone</strong>: +1 234 56-78</p><p><strong>E-mail</strong>: demo@example.com</p>',
+            'slug' => 'contact',
+            'show_in_menu' => 1
+        ]);
+        $page14->create();
+        $this->attachSeo($page14, 'Contact us', 'Extended contact title');
 
         return 'Page data inserted.';
     }
@@ -402,27 +439,23 @@ class InstallController extends \yii\web\Controller
 
         $root1 = new article\models\Category([
             'title' => 'Articles category 1',
-            'order_num' => 2
         ]);
         $root1->makeRoot();
         $this->attachSeo($root1, 'Articles category 1 H1', 'Extended category 1 title');
 
         $root2 = new article\models\Category([
             'title' => 'Articles category 2',
-            'order_num' => 1
         ]);
         $root2->makeRoot();
 
         $subcat1 = new article\models\Category([
             'title' => 'Subcategory 1',
-            'order_num' => 1
         ]);
         $subcat1->appendTo($root2);
         $this->attachSeo($subcat1, 'Subcategory 1 H1', 'Extended subcategory 1 title');
 
         $subcat2 = new article\models\Category([
             'title' => 'Subcategory 1',
-            'order_num' => 1
         ]);
         $subcat2->appendTo($root2);
         $this->attachSeo($subcat2, 'Subcategory 2 H1', 'Extended subcategory 2 title');
@@ -484,7 +517,6 @@ class InstallController extends \yii\web\Controller
             'title' => 'Album 1',
             'image_file' => 'gallery/album-1.jpg',
             'tagNames' => 'php, css, bootstrap',
-            'order_num' => 2
         ]);
         $album1->makeRoot();
         $this->attachSeo($album1, 'Album 1 H1', 'Extended Album 1 title');
@@ -504,7 +536,6 @@ class InstallController extends \yii\web\Controller
             'title' => 'Album 2',
             'image_file' => 'gallery/album-2.jpg',
             'tagNames' => 'jquery, bootstrap',
-            'order_num' => 1
         ]);
         $album2->makeRoot();
         $this->attachSeo($album2, 'Album 2 H1', 'Extended Album 2 title');
@@ -628,28 +659,6 @@ class InstallController extends \yii\web\Controller
         }
         $this->db->createCommand('TRUNCATE TABLE `'.entity\models\Category::tableName().'`')->query();
 
-        $menuFields = [
-            [
-                'name' => 'link',
-                'title' => 'Link',
-                'type' => 'string',
-                'options' => ''
-            ],
-            [
-                'name' => 'controller',
-                'title' => 'Controller',
-                'type' => 'string',
-                'options' => ''
-            ],
-        ];
-
-        $menuCat = new entity\models\Category([
-            'title' => 'Menu',
-            'fields' => $menuFields,
-            'cache' => 1
-        ]);
-        $menuCat->create();
-
         $featureFields = [
             [
                 'name' => 'description',
@@ -671,86 +680,6 @@ class InstallController extends \yii\web\Controller
             'cache' => 1
         ]);
         $featureCat->create();
-
-        (new entity\models\Item([
-            'category_id' => $menuCat->primaryKey,
-            'title' => 'Home',
-            'data' => [
-                'link' => '/',
-                'controller' => 'site',
-            ],
-            'order_num' => 8
-        ]))->save();
-
-        (new entity\models\Item([
-            'category_id' => $menuCat->primaryKey,
-            'title' => 'Shop',
-            'data' => [
-                'link' => '/shop',
-                'controller' => 'shop',
-            ],
-            'order_num' => 7
-        ]))->save();
-
-        (new entity\models\Item([
-            'category_id' => $menuCat->primaryKey,
-            'title' => 'News',
-            'data' => [
-                'link' => '/news',
-                'controller' => 'news',
-            ],
-            'order_num' => 6
-        ]))->save();
-
-        (new entity\models\Item([
-            'category_id' => $menuCat->primaryKey,
-            'title' => 'Articles',
-            'data' => [
-                'link' => '/articles',
-                'controller' => 'articles',
-            ],
-            'order_num' => 5
-        ]))->save();
-
-        (new entity\models\Item([
-            'category_id' => $menuCat->primaryKey,
-            'title' => 'Gallery',
-            'data' => [
-                'link' => '/gallery',
-                'controller' => 'gallery',
-            ],
-            'order_num' => 4
-        ]))->save();
-
-        (new entity\models\Item([
-            'category_id' => $menuCat->primaryKey,
-            'title' => 'Guestbook',
-            'data' => [
-                'link' => '/guestbook',
-                'controller' => 'guestbook',
-            ],
-            'order_num' => 3
-        ]))->save();
-
-        (new entity\models\Item([
-            'category_id' => $menuCat->primaryKey,
-            'title' => 'FAQ',
-            'data' => [
-                'link' => '/faq',
-                'controller' => 'faq',
-            ],
-            'order_num' => 2
-        ]))->save();
-
-        (new entity\models\Item([
-            'category_id' => $menuCat->primaryKey,
-            'title' => 'Contact',
-            'data' => [
-                'link' => '/contact',
-                'controller' => 'contact',
-            ],
-            'order_num' => 1
-        ]))->save();
 
         (new entity\models\Item([
             'category_id' => $featureCat->primaryKey,
