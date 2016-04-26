@@ -39,6 +39,7 @@ $this->params['breadcrumbs'][] = $plainPageTitle;
                 <?= $form->field($filterForm, 'touchscreen')->checkbox() ?>
                 <?= $form->field($filterForm, 'storageFrom') ?>
                 <?= $form->field($filterForm, 'storageTo') ?>
+                <?= $form->field($filterForm, 'cpuCores', ['options' => ['class' => 'checkbox-list-margin']])->checkboxList(['1' => '1', '2' => '2', '4' => '4', '8' => '8']) ?>
                 <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
             <?php ActiveForm::end(); ?>
         </div>
