@@ -27,7 +27,22 @@ $goodsCount = count(Shopcart::goods());
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav">
                         <?php foreach(Page::menu() as $menuItem) : ?>
-                            <li <?= ($menuItem['active'] ? 'class="active"' : '') ?>><?= Html::a($menuItem['label'], $menuItem['url']) ?></li>
+                            <?php if(empty($menuItem['children'])) : ?>
+                                <li class="<?= ($menuItem['active'] ? 'active' : '') ?>">
+                                    <?= Html::a($menuItem['label'], $menuItem['url']) ?>
+                                </li>
+                            <?php else : ?>
+                                <li class="dropdown <?= ($menuItem['active'] ? 'active' : '') ?>">
+                                    <?= Html::a($menuItem['label'] . ' <span class="caret"></span>', $menuItem['url'], [
+                                        'class' => 'dropdown-toggle',
+                                    ]) ?>
+                                    <ul class="dropdown-menu">
+                                        <?php foreach($menuItem['children'] as $child) : ?>
+                                            <li><?= Html::a($child['label'], $child['url']) ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </li>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </ul>
 

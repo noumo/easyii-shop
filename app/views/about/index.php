@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $plainPageTitle;
         <h4>Subpages</h4>
         <div class="list-group">
         <?php foreach(Page::get('about')->children as $childPage) : ?>
-            <a class="list-group-item <?php if($childPage->slug == $subpageSlug) echo 'active'; ?>" href="<?= Url::to(['/about', 'subpage' => $childPage->slug])?>"><?= $childPage->title ?></a>
+            <a class="list-group-item <?php if($childPage->slug == $subpageSlug) echo 'active'; ?>" href="<?= Url::to(['/about/index', 'subpage' => $childPage->slug])?>"><?= $childPage->title ?></a>
         <?php endforeach; ?>
         </div>
     </div>

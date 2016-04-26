@@ -76,6 +76,15 @@ footer, .push {
     margin-bottom: 20px;
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; // remove the gap so it doesn't close
+}
+
+.checkbox-list-margin > div label{
+    margin-right: 10px;
+}
+
 /*Form Wizard*/
 .bs-wizard {border-bottom: solid 1px #e0e0e0; padding: 0 0 10px 0;}
 .bs-wizard > .bs-wizard-step {padding: 0; position: relative;}
